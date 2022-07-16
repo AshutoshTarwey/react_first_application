@@ -4,25 +4,20 @@ import React, { useState } from 'react';
 
 export default function App() {
   let [counter, setCount] = useState(0);
+
+  function Increase() {
+    setCount(counter + 1);
+  }
+  function Decrease() {
+    setCount(counter - 1);
+  }
+
   return (
     <div>
       <h2>{counter}</h2>
-      <button
-        onClick={() => {
-          setCount(counter + 1);
-        }}
-      >
-        Increment
-      </button>
+      <button onClick={Increase}>Increment</button>
 
-      <button
-        onClick={() => {
-          setCount(counter - 1);
-        }}
-      >
-        {' '}
-        Decrease{' '}
-      </button>
+      <button onClick={Decrease}>Decrement</button>
     </div>
   );
 }
