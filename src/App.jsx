@@ -17,7 +17,6 @@ export default function App() {
   useEffect(useEffectSideEffect, [counter]);
 
   function useEffectSideEffect() {
-    debugger;
     console.log(counter);
   }
 

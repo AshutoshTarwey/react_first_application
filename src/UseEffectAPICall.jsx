@@ -13,12 +13,12 @@ export default function UseEffectAPICall() {
     apiCall();
   }
 
-  async function apiCall() {
-    await fetch(apiurl)
-      .then((p) => {
-        let response = p.json();
+  function apiCall() {
+    fetch(apiurl)
+      .then(async (p) => {
+        let response = await p.json();
         debugger;
-        setUrl(response.message);
+        setUrl(response.message[0]);
       })
       .catch((error) => {
         debugger;
@@ -34,7 +34,10 @@ export default function UseEffectAPICall() {
     <div>
       Reactive Rain at Bangalore with UseEffect example.
       <button onClick={nextMethod}>Next</button>
-      <div className="doggy"></div>
+      <div className="doggy">
+        <img src={url} alt="" />
+      </div>
+      {/* <div>{url}</div> */}
     </div>
   );
 }
